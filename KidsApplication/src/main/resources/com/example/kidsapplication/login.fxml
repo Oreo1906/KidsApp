@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.animation.*?>
+<?import javafx.util.Duration?>
+<?import javafx.scene.effect.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.kidsapplication.LoginController">
+    <children>
+        <StackPane alignment="CENTER" prefWidth="250" prefHeight="200" layoutX="0" layoutY="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <!-- Background with gradient -->
+            <Rectangle width="450" height="785" fill="#FFE5E5"/>
+
+            <!-- Login Section -->
+            <VBox fx:id="loginBox" spacing="12" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 0);">
+                <Label text="LOGIN" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #FF6B6B; -fx-effect: dropshadow(gaussian, #FF6B6B, 4, 0, 0, 0);" />
+
+                <!-- Username Field - Pink Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FFE5F5; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #FF69B4; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(255,105,180,0.2), 4, 0, 0, 0);">
+                    <Label text="🎮" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="usernameField" promptText="Username" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #FF69B4; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Password Field - Purple Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #E5E5FF; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #8A2BE2; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(138,43,226,0.2), 4, 0, 0, 0);">
+                    <Label text="🔑" style="-fx-font-size: 24px;"/>
+                    <PasswordField fx:id="passwordField" promptText="Password" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #8A2BE2; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Create Account Link with hover effect -->
+                <Button text="Create Account" onAction="#showCreateAccount"
+                        style="-fx-background-color: transparent; -fx-text-fill: #FF6B6B; -fx-underline: true; -fx-font-size: 14px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, #FF6B6B, 2, 0, 0, 0);"/>
+
+                <!-- Login Button with enhanced styling -->
+                <Button fx:id="loginButton" text="Login" onAction="#handleLoginAction"
+                        style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 15; -fx-padding: 12 25; -fx-effect: dropshadow(gaussian, #FF6B6B, 4, 0, 0, 0);"/>
+
+                <!-- Status Label with animation -->
+                <Label fx:id="statusLabel" text="" style="-fx-text-fill: #FF6B6B; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- Create Account Section -->
+            <VBox fx:id="createAccountBox" spacing="12" alignment="CENTER" visible="false" managed="false"
+                  style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0, 0, 0);">
+                <Label text="CREATE ACCOUNT" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #FF6B6B; -fx-effect: dropshadow(gaussian, #FF6B6B, 4, 0, 0, 0);" />
+
+                <!-- Name Field - Orange Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FFE5CC; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #FF8C00; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(255,140,0,0.2), 4, 0, 0, 0);">
+                    <Label text="👶" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="nameField" promptText="Name" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #FF8C00; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Middle Name Field - Green Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #E5FFE5; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #32CD32; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(50,205,50,0.2), 4, 0, 0, 0);">
+                    <Label text="👶" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="middlenameField" promptText="Middle Name" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #32CD32; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Surname Field - Blue Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #E5F5FF; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #1E90FF; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(30,144,255,0.2), 4, 0, 0, 0);">
+                    <Label text="👶" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="surnameField" promptText="Surname" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #1E90FF; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Username Field - Yellow Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FFFDE5; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #FFD700; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(255,215,0,0.2), 4, 0, 0, 0);">
+                    <Label text="🎮" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="newUsernameField" promptText="Username" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #FFD700; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Password Field - Red Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FFE5E5; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #FF4500; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(255,69,0,0.2), 4, 0, 0, 0);">
+                    <Label text="🔑" style="-fx-font-size: 24px;"/>
+                    <PasswordField fx:id="newPasswordField" promptText="Password" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #FF4500; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Age Field - Cyan Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #E5FFFF; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #00CED1; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(0,206,209,0.2), 4, 0, 0, 0);">
+                    <Label text="🎂" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="ageField" promptText="Age ( 5-12 )" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #00CED1; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Contact Number Field - Magenta Theme -->
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #FFE5FF; -fx-padding: 12; -fx-background-radius: 15; -fx-border-color: #FF00FF; -fx-border-radius: 15; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(255,0,255,0.2), 4, 0, 0, 0);">
+                    <Label text="📱" style="-fx-font-size: 24px;"/>
+                    <TextField fx:id="contactNumberField" promptText="Contact Number" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-size: 14px; -fx-prompt-text-fill: #FF00FF; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Create Account Button - Gradient Theme -->
+                <Button fx:id="createAccountButton" text="Create Account" onAction="#handleCreateAccountAction"
+                        style="-fx-background-color: linear-gradient(to right, #FF6B6B, #4ECDC4); -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 15; -fx-padding: 12 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 0);"/>
+
+                <!-- Status Label with animation -->
+                <Label fx:id="accountStatusLabel" text="" style="-fx-text-fill: #FF6B6B; -fx-font-size: 14px; -fx-font-weight: bold;" />
+
+                <!-- Back to Login Button - Gradient Theme -->
+                <Button fx:id="backlogin" text="Back to Login" onAction="#showLogin"
+                        style="-fx-background-color: linear-gradient(to right, #4ECDC4, #FF6B6B); -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 15; -fx-padding: 12 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0, 0, 0);"/>
+            </VBox>
+        </StackPane>
+    </children>
+</AnchorPane>
